@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Version>0.1.0</Version>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<Nullable>enable</Nullable>
+		<isPackable>true</isPackable>
+		<PackageId>Test.Lib</PackageId>
+	</PropertyGroup>
+
+</Project>
