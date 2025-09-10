@@ -29,4 +29,4 @@ jobs:
 
       curl -X POST -H "Content-Type: application/json" \
         --data "{\"text\":\"Job in *${GITHUB_REPOSITORY}* finished with status: $STATUS.\n<${BUILD_URL}|View Build>\"}" \
-        $SLACK_WEBHOOK_URL
+        $SLACK_WEBHOOK_TEST_NOTIFICATION_URL
