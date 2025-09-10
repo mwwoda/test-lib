@@ -13,3 +13,20 @@ jobs:
       - name: All Tests
         if: "!startsWith(github.head_ref, 'release')"
         run: dotnet test TestProject1
+  notify:
+    needs: first
+    if: always()
+    env:
+      SLACK_WEBHOOK_TEST_NOTIFICATION_URL: ${{ secrets.SLACK_WEBHOOK_TEST_NOTIFICATION_URL }}
+      JOB_STATUS: ${{ job.status }}
+      BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    run: |
+      if [ "$JOB_STATUS" == "success" ]; then
+        STATUS="Success ✅"
+      else
+        STATUS="Failure ❌"
+      fi
+
+      curl -X POST -H "Content-Type: application/json" \
+        --data "{\"text\":\"Job in *${GITHUB_REPOSITORY}* finished with status: $STATUS.\n<${BUILD_URL}|View Build>\"}" \
+        $SLACK_WEBHOOK_URL
