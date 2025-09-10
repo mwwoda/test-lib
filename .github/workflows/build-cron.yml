@@ -1,10 +1,7 @@
 name: build-cron
 on:
   schedule:
-    - cron: "*/5 * * * *"
-  pull_request:
-    branches:
-      - main
+    - cron: '*/5 * * * *'
 jobs:
   first:
     name: Test cron
