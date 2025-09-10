@@ -11,5 +11,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: All Tests
-        if: "!startsWith(github.head_ref, 'release')
+        if: "!startsWith(github.head_ref, 'release')"
         run: dotnet test TestProject1
