@@ -1,11 +1,11 @@
-name: build-and-test
+name: build-pr
 on:
   pull_request:
     branches:
       - main
 jobs:
   first:
-    name: Test cron
+    name: Test pr
     runs-on: windows-latest
     steps:
       - name: Checkout
