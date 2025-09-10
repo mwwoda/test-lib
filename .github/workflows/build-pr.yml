@@ -1,0 +1,15 @@
+name: build-and-test
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  first:
+    name: Test cron
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: All Tests
+        if: "!startsWith(github.head_ref, 'release')
+        run: dotnet test TestProject1
